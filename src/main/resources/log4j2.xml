@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="FinalOutput" target="SYSTEM_OUT">
+            <PatternLayout pattern="%msg%n"/>
+        </Console>
+<!--        <Console name="LogToConsole" target="SYSTEM_OUT">-->
+<!--            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>-->
+<!--        </Console>-->
+        <File name="File" fileName="log4j2.log" append="true">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level - %msg%n</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="UnitTest" fileName="unit-test-log4j2.log" append="true">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level - %msg%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+<!--        <Logger name="de" level="debug" additivity="false">-->
+<!--            <AppenderRef ref="File"/>-->
+<!--        </Logger>-->
+        <Logger name="ElementTest" level="debug" additivity="false">
+            <AppenderRef ref="UnitTest"/>
+        </Logger>
+        <Logger name="de.xibix.vsf.deserializer.NodeTest" level="debug" additivity="false">
+            <AppenderRef ref="UnitTest"/>
+        </Logger>
+        <Logger name="FinalOutput" level="debug" additivity="false">-->
+            <AppenderRef ref="FinalOutput"/>-->
+        </Logger>-->
+        <Root level="trace">
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>
